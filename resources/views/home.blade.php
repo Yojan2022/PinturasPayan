@@ -4,7 +4,10 @@
 
 @include('/layouts/nav')
 @include('/layouts/menu')
- 
+
+
+
+
   <!--<div class="main-container">
    <div class="main-header">
     <a class="menu-link-main" href="#">All Apps</a>
