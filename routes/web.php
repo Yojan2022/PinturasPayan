@@ -30,3 +30,6 @@ Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create
 //ruta crear usuario
 Route::post('/users', [App\Http\Controllers\UserController::class,'store'])->name('users.store');
 
+
+
+
