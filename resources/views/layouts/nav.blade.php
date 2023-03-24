@@ -6,7 +6,7 @@
  <div class="header">
   <div class="menu-circle"></div>
   <div class="header-menu">
-   <a class="menu-link is-active" href="#">Vista</a>
+   <a class="menu-link is-active" href="{{route('home')}}">Inicio</a>
    <a class="menu-link notify" href="#">Vista</a>
    <a class="menu-link" href="#">Vista</a>
    <a class="menu-link notify" href="#">Vista</a>

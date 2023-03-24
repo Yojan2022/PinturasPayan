@@ -1,3 +1,7 @@
+
+
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,7 +9,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Pinturas Payam</title>
+  <title>Pinturas Payan</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'><link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
@@ -25,15 +29,13 @@
    <div class="container"> 
     <div class="form"> 
       <h2>Iniciar sesion</h2>
-      <form method="POST" action="{{ route('login') }}">
-      @csrf
-        <div class="inputBx">
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-          @error('email')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-            </span>
-          @enderror
+      <form method="POST" action="{{ route('password.update') }}">
+            @csrf
+            <div class="inputBx">
+                <input type="hidden" name="token" value="{{ $token }}" autofocus>
+                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+
           <span>Usuario</span>
           <i class="fas fa-user-circle"></i>
         </div>
@@ -46,13 +48,8 @@
         
         <div class="inputBx">
         
-          <input type="submit" value="Entrar" >
-        </div>
-        @if (Route::has('password.request'))
-            <a class="btn btn-link" href="{{ route('password.request') }}">
-              {{ __('Olvido su contraseña?') }}
-            </a>
-          @endif 
+          <input type="submit" value="Entra" >
+        </div> 
       </form>
     </div>
   </div>
@@ -60,7 +57,7 @@
   </div>
 </section>
 <!-- partial -->
-  <script  src="{{ asset('js/script.js') }}"></script>
+  <script  src="{{ asset('js/scripts.js') }}"></script>
 
 </body>
 </html>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
 
 Route::get('/welcome', function () {
@@ -26,7 +26,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //ruta vista crear usuario
-Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create']);
+Route::get('/create', [App\Http\Controllers\UserController::class, 'create'])->name('usercreate');
+//ruta mostrar usuarios
+Route::get('userTable', [App\Http\Controllers\UserController::class, 'traer'])->name('userTable');
 //ruta crear usuario
 Route::post('/users', [App\Http\Controllers\UserController::class,'store'])->name('users.store');
-
+//ruta eliminar ususario
+Route::get('/delete/{id}', [App\Http\Controllers\UserController::class,'delete'])->name('DeleteUser');
+//ruta vista historial de usuarios
+Route::get('users/historial', [App\Http\Controllers\UserController::class, 'historial'])->name('userHistorial');
+//restarurar usuarios
+Route::get('/restore/{id}', [App\Http\Controllers\UserController::class, 'restore'])->name('userRestore');
+//ruta para editarr usuarios
+Route::get('edit/users/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+Route::post('edit/users', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
