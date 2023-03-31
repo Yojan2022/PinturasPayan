@@ -15,9 +15,8 @@ class UserController extends Controller
     $users = User::get();
     $data = ['users'=>$users,'user'=>'users'];
     return view('users.table',$data);
-  } 
-  
-  //funcion vista crear usuarios
+  }  
+
   public function create() 
   {
     return view('users.create');//entra a la carpeta luego a la vista

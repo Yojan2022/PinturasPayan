@@ -336,7 +336,6 @@ body.light-mode .video-bg:before {
 }
 
 .side-title {
-  color: var(--inactive-color);
   margin-bottom: 14px;
 }
 

@@ -17,6 +17,7 @@ class CreateConsumptionsTable extends Migration
             $table->id();
             $table->foreignId('preparation_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->string('cantidadMl');
             $table->timestamps();
         });
     }

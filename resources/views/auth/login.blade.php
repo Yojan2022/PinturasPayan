@@ -38,7 +38,7 @@
           <i class="fas fa-user-circle"></i>
         </div>
         <div class="inputBx password">
-          <input id="password" type="text"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+          <input id="password" type="password"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
           <span>Contraseña</span>
           <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
           <i class="fas fa-key"></i>

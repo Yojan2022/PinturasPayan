@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class category extends Model
+class sale extends Model
 {
     use SoftDeletes;
     protected $dates = ['delected_at'];
@@ -14,9 +14,13 @@ class category extends Model
 
     use HasFactory;
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['customer_id','fechaVenta'];
 
-    public function products(){
-        return $this->hasMany(product::class);
+    public function customers(){
+        return $this->belongsToMany(customer::class);
+    }
+
+    public function product_sales(){
+        return $this->hasMany(product_sale::class);
     }
 }
