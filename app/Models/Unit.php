@@ -14,7 +14,7 @@ class Unit extends Model
 
     use HasFactory;
 
-    protected $fillable = ['nombre','unidadMl','factorConversion'];
+    protected $fillable = ['nombre','cantidadMl','factorConversion'];
 
     public function products(){
         return $this->hasMany(product::class);

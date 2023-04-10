@@ -2,21 +2,47 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class category extends Model
+/**
+ * Class Category
+ *
+ * @property $id
+ * @property $nombre
+ * @property $deleted_at
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property Product[] $products
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
+class Category extends Model
 {
     use SoftDeletes;
-    protected $dates = ['delected_at'];
-    protected $hidden = ['created_at','updated_at'];
 
-    use HasFactory;
+    static $rules = [
+		'nombre' => 'required',
+    ];
 
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['nombre'];
 
-    public function products(){
-        return $this->hasMany(product::class);
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product', 'category_id', 'id');
     }
+    
+
 }
