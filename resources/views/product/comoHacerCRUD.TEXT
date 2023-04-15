@@ -1,5 +1,5 @@
 1 composer require ibex/crud-generator --dev Se descarga solo la primera ves
-2 php artisan vender:publish --tag=crud
+2 php artisan vendor:publish --tag=crud
 3 php artisan make:crud nombreTabla
 4 php artisan migrate se hacen las migraciones y si ya antes se habian echo se hace php artisan migrate:fresh
 5 para seguir haciendo crud solo se ejecuta el 3 paso

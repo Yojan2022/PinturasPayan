@@ -15,8 +15,10 @@ class CreateBuyProductsTable extends Migration
     {
         Schema::create('buy_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->foreignId('buy_id')->constrained();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullOnDelete();
+            $table->unsignedBigInteger('buy_id')->nullable();
+            $table->foreign('buy_id')->references('id')->on('buys')->nullOnDelete();
             $table->timestamps();
         });
     }

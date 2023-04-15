@@ -15,7 +15,8 @@ class CreateBuysTable extends Migration
     {
         Schema::create('buys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('supplier_id')->constrained();
+            $table->unsignedBigInteger('supplier_id')->nullable();
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->nullOnDelete();
             $table->date('fecha');
             $table->string('numeroFactura');
             $table->string('cantidad');

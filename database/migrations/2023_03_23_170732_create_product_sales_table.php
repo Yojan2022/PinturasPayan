@@ -15,9 +15,12 @@ class CreateProductSalesTable extends Migration
     {
         Schema::create('product_sales', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sale_id')->constrained();
-            $table->foreignId('product_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->unsignedBigInteger('sale_id')->nullable();
+            $table->foreign('sale_id')->references('id')->on('sales')->nullOnDelete();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullOnDelete();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
             $table->string('cantidad');
             $table->string('valor');
             $table->softDeletes();

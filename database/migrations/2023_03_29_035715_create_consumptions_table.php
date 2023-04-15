@@ -15,8 +15,10 @@ class CreateConsumptionsTable extends Migration
     {
         Schema::create('consumptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('preparation_id')->constrained();
-            $table->foreignId('product_id')->constrained();
+            $table->unsignedBigInteger('preparation_id')->nullable();
+            $table->foreign('preparation_id')->references('id')->on('preparations')->nullOnDelete();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullOnDelete();
             $table->string('cantidadMl');
             $table->timestamps();
         });

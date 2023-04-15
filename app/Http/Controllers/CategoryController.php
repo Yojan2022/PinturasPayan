@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate();
-
-        return view('category.index', compact('categories'))
+        $units = Unit::paginate();
+        
+        return view('category.index', compact('categories','units'))
             ->with('i', (request()->input('page', 1) - 1) * $categories->perPage());
     }
 
@@ -47,8 +49,8 @@ class CategoryController extends Controller
 
         $category = Category::create($request->all());
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Category created successfully.');
+        return redirect()->route('categories.index');
+            //->with('success', 'Category created successfully.');
     }
 
     /**
@@ -90,8 +92,8 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Category updated successfully');
+        return redirect()->route('categories.index');
+            //->with('success', 'Category updated successfully');
     }
 
     /**
@@ -103,7 +105,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id)->delete();
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Category deleted successfully');
+        return redirect()->route('categories.index');
+            //->with('success', 'Category deleted successfully');
     }
 }

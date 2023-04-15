@@ -5,7 +5,7 @@
 @include('/layouts/nav')
 @include('/layouts/menu')
  
-  <!--<div class="main-container">
+<div class="main-container">
    <div class="main-header">
     <a class="menu-link-main" href="#">All Apps</a>
     <div class="header-menu">
@@ -196,8 +196,7 @@
   </div>
  </div>
  <div class="overlay-app"></div>
-</div
- -->
+</div>
 
 @include('/layouts/scripts')
 

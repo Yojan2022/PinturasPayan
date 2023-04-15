@@ -25,33 +25,33 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Unit Id:</strong>
+                            <strong>N°:</strong>
                             {{ $product->unit_id }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
                             <strong>Nombre:</strong>
                             {{ $product->nombre }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
                             <strong>Marca:</strong>
                             {{ $product->marca }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
                             <strong>Valor:</strong>
                             {{ $product->valor }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
                             <strong>Descuento:</strong>
                             {{ $product->descuento }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
-                            <strong>Codigobarras:</strong>
+                            <strong>Codigo de barras:</strong>
                             {{ $product->codigoBarras }}
-                        </div>
+                        </div><br>
                         <div class="form-group">
-                            <strong>Category Id:</strong>
+                            <strong>Categoria:</strong>
                             {{ $product->category_id }}
-                        </div>
+                        </div><br>
 
                     </div>
                 </div>
