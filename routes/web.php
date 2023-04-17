@@ -45,3 +45,5 @@ Route::post('edit/users', [App\Http\Controllers\UserController::class, 'update']
 Route::resource('products', App\Http\Controllers\ProductController::class);
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
 Route::resource('units', App\Http\Controllers\UnitController::class);
+Route::resource('suppliers', App\Http\Controllers\SupplierController::class);
+Route::resource('buys', App\Http\Controllers\BuyController::class);
