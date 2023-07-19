@@ -36,7 +36,7 @@ Route::get('/delete/{id}', [App\Http\Controllers\UserController::class,'delete']
 //ruta vista historial de usuarios
 Route::get('users/historial', [App\Http\Controllers\UserController::class, 'historial'])->name('userHistorial');
 //restarurar usuarios
-Route::get('/restore/{id}', [App\Http\Controllers\UserController::class, 'restore'])->name('userRestore');
+Route::post('users/{id}/restore', [App\Http\Controllers\UserController::class, 'restore'])->name('users.restore');
 //ruta para editarr usuarios
 Route::get('edit/users/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
 Route::post('edit/users', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');

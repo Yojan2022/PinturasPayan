@@ -59,22 +59,17 @@ class UserController extends Controller
   } 
  
   //funcion para restablecer usuarios borrados 
-  /*public function restore($id){
-    $users = User::withTrashed()->findOrFail($id); // busca el usuario, incluso si fue eliminado
-    if($users->trashed()){ // verifica si el usuario fue eliminado
-      $users->restore(); // restaura el usuario eliminado
-    }
-    return view('users.historial')->with('users',$users);
-  }*/
+  
+  public function restore($id)
+  { 
+    // Buscar el usuario eliminado
+    $user = User::onlyTrashed()->findOrFail($id);
 
-  public function restore($id){
-    $user = User::withTrashed()->findOrFail($id); // busca el usuario, incluso si fue eliminado
-    if($user->trashed()){ // verifica si el usuario fue eliminado
-      $user->restore(); // restaura el usuario eliminado
-      return view('users.historial')->with('users',$users);
-    }
-    return view('users.historial')->with('users',$users);
-}
+    // Restaurar el usuario
+    $user->restore();
+
+    return back()->with('success', 'Usuario restaurado correctamente.');
+  }
   
   //funcion para editar usuarios
   public function edit($id){
